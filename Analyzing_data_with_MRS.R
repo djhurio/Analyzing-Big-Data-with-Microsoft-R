@@ -655,7 +655,7 @@ system.time(linmod <- rxLinMod(tip_percent ~ pickup_nb:dropoff_nb + pickup_dow:p
 system.time(dtree <- rxDTree(tip_percent ~ pickup_nb + dropoff_nb + pickup_dow + pickup_hour,
                              data = mht_split$train, pruneCp = "auto", reportProgress = 0))
 system.time(dforest <- rxDForest(tip_percent ~ pickup_nb + dropoff_nb + pickup_dow + pickup_hour,
-                                 mht_split$train, nTree = 10, importance = TRUE, useSparseCube = TRUE, reportProgress = 0))
+                                 mht_split$train, nTree = 100, importance = TRUE, useSparseCube = TRUE, reportProgress = 0))
 
 trained.models <- list(linmod = linmod, dtree = dtree, dforest = dforest)
 save(trained.models, file = 'trained_models.Rdata')
